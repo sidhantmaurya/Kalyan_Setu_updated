@@ -1,40 +1,23 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import appletConfig from '../../firebase-applet-config.json';
 
-// Prioritize environment variables from .env (VITE_FIREBASE_*) so keys are managed via .env
 const firebaseConfig = {
-  projectId:
-    import.meta.env.VITE_FIREBASE_PROJECT_ID ||
-    appletConfig?.projectId ||
-    'organic-vortex-mmzf6',
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'organic-vortex-mmzf6',
   appId:
-    import.meta.env.VITE_FIREBASE_APP_ID ||
-    appletConfig?.appId ||
-    '1:557356638537:web:33d592140b7fb3f4893a98',
+    import.meta.env.VITE_FIREBASE_APP_ID || '1:557356638537:web:33d592140b7fb3f4893a98',
   apiKey:
-    import.meta.env.VITE_FIREBASE_API_KEY ||
-    appletConfig?.apiKey ||
-    'AIzaSyAj9Uky0ktuMZNccvGmv1WUMakvAVKw_uw',
+    import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyAj9Uky0ktuMZNccvGmv1WUMakvAVKw_uw',
   authDomain:
-    import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ||
-    appletConfig?.authDomain ||
-    'organic-vortex-mmzf6.firebaseapp.com',
+    import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'organic-vortex-mmzf6.firebaseapp.com',
   firestoreDatabaseId:
     import.meta.env.VITE_FIREBASE_DATABASE_ID ||
-    appletConfig?.firestoreDatabaseId ||
     'ai-studio-kalyansetuservin-33824c4b-76f5-4fe1-95da-ae446c22ab1e',
   storageBucket:
-    import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ||
-    appletConfig?.storageBucket ||
-    'organic-vortex-mmzf6.firebasestorage.app',
+    import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'organic-vortex-mmzf6.firebasestorage.app',
   messagingSenderId:
-    import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID ||
-    appletConfig?.messagingSenderId ||
-    '557356638537',
-  measurementId:
-    import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || appletConfig?.measurementId || '',
+    import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '557356638537',
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || '',
 };
 
 const app = initializeApp(firebaseConfig);
